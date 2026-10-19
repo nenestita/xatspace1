@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xatspace de Tita</title>
-    <!-- Importation des polices d'écriture Google Fonts (Parisienne pour le style Mumy, Cinzel et Montserrat) -->
+    <!-- Importation des polices d'écriture Google Fonts -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Cinzel:wght@500&family=Montserrat:wght@300;400;600&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
@@ -42,6 +42,7 @@
             justify-content: center;
             align-items: center;
             z-index: 30;
+            opacity: 1;
             transition: opacity 0.6s ease;
         }
 
@@ -88,6 +89,7 @@
             color: #f1dfbc;
             text-shadow: 0 0 15px rgba(241, 223, 188, 0.6);
             text-align: center;
+            z-index: 25;
         }
 
         #transition-screen::before {
@@ -167,7 +169,6 @@
             font-family: 'Parisienne', cursive;
             font-size: 110px;
             font-weight: 500;
-            /* Création du dégradé linéaire de couleur sur le texte */
             background: linear-gradient(45deg, #cc66ff, #ff6699);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -212,7 +213,6 @@
             border-bottom: none;
         }
 
-        /* Style des émojis/icônes */
         .icon-bullet {
             font-size: 18px;
             width: 24px;
@@ -304,6 +304,7 @@
             100% { transform: scale(1); }
         }
 
+        /* BOÎTE MUSIQUE TOTALEMENT INVISIBLE */
         .lecteur-cache {
             position: absolute;
             width: 1px;
@@ -311,6 +312,7 @@
             opacity: 0;
             overflow: hidden;
             top: -9999px;
+            left: -9999px;
         }
     </style>
 </head>
@@ -318,7 +320,7 @@
 
     <!-- ==================== ÉTAPE 1 : PAGE D'ACCUEIL ==================== -->
     <div id="splash-page">
-        <button class="btn-entrer" onclick="declencherTransition()">Tita</button>
+        <button id="bouton-declencheur" class="btn-entrer">Tita</button>
     </div>
 
     <!-- ==================== ÉTAPE 2 : TRANSITION PAILLETTES (4 SECONDES) ==================== -->
@@ -326,3 +328,6 @@
         <div class="phrase-deen">deen over dunya</div>
     </div>
 
+    <!-- ==================== ÉTAPE 3 : LE PROFIL PRINCIPAL ==================== -->
+    <div id="main-profile">
+        
