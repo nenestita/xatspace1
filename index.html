@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xatspace de Tita</title>
-    <!-- Importation propre et sécurisée des polices d'écriture Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Importation des polices d'écriture Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
     
     <style>
-        /* CONFIGURATION STRUCTURELLE DE BASE */
+        /* DESIGN GLOBAL */
         body, html {
             margin: 0;
             padding: 0;
@@ -23,15 +23,15 @@
         }
 
         a {
-            color: #ff6699;
+            color: #cc66ff;
             text-decoration: none;
             transition: color 0.3s;
         }
         a:hover {
-            color: #cc66ff;
+            color: #ff6699;
         }
 
-        /* 1. LA PAGE D'ACCUEIL (SPLASH PAGE) */
+        /* 1. PAGE D'ACCUEIL (SPLASH) */
         #splash-page {
             position: absolute;
             width: 100%;
@@ -42,10 +42,10 @@
             justify-content: center;
             align-items: center;
             z-index: 30;
-            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 1;
+            transition: opacity 0.4s ease;
         }
 
-        /* LE BOUTON CENTRAL INCRUSTÉ AVEC L'IMAGE EN ARRIÈRE-PLAN */
         .btn-entrer {
             padding: 20px 60px;
             font-family: 'Sacramento', cursive;
@@ -57,18 +57,17 @@
             border: 2px solid rgba(255, 255, 255, 0.7);
             border-radius: 15px;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px #fff;
             transition: all 0.3s ease;
         }
-        
         .btn-entrer:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(255, 102, 153, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 40px rgba(255, 102, 153, 0.8);
             border-color: #ff6699;
         }
 
-        /* 2. LE PROFIL PRINCIPAL (AFFICHÉ APRÈS LE CLIC) */
+        /* 2. LE PROFIL PRINCIPAL */
         #main-profile {
             position: absolute;
             width: 100%;
@@ -78,14 +77,14 @@
             display: none;
             opacity: 0;
             z-index: 10;
-            transition: opacity 0.8s ease;
+            transition: opacity 0.5s ease;
         }
 
-        /* COMPOSANT AVATAR ROND DE TITA + STATUT EN LIGNE (HAUT GAUCHE) */
+        /* BLOC AVATAR + ID (HAUT GAUCHE) */
         .tita-profile-box {
             position: absolute;
-            top: 70px;
-            left: 70px;
+            top: 40px;
+            left: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -123,22 +122,24 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        
         }
 
-        /* BLOC DE PRÉSENTATION TRANSPARENT AESTHETIC (BAS DROITE) */
+        /* BLOC DE PRÉSENTATION TRANSPARENT VIOLET */
         .presentation-box {
             position: absolute;
             bottom: 50px;
             right: 50px;
             width: 380px;
-            background: rgba(10, 10, 10, 0.65);
+            background: rgba(10, 10, 10, 0.7);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 102, 153, 0.25);
+            border: 1px solid rgba(204, 102, 255, 0.3);
             border-radius: 20px;
             padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             box-sizing: border-box;
+            color: #cc66ff;
         }
 
         .presentation-list {
@@ -154,7 +155,7 @@
             padding: 12px 0;
             font-size: 15px;
             letter-spacing: 0.5px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(204, 102, 255, 0.15);
         }
 
         .presentation-item:last-child {
@@ -172,7 +173,7 @@
             font-weight: bold;
         }
 
-        /* WIDGET MARIAGE "LOVE" EN MENU DÉROULANT (HAUT DROITE) */
+        /* COMPOSANT MENU DÉROULANT MARIAGE ("LOVE") */
         .dropdown-marriage {
             position: absolute;
             top: 40px;
@@ -228,11 +229,24 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #ff6699;
+            box-shadow: 0 0 8px rgba(255, 102, 153, 0.5);
+        }
+
+        .raven-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .raven-link:hover .raven-name {
+            color: #ff6699;
         }
 
         .raven-name {
             font-size: 18px;
             font-weight: bold;
+            transition: color 0.2s;
         }
 
         .heart-pink {
@@ -242,7 +256,7 @@
             margin-left: auto;
         }
 
-        /* CLASSIFICATION DES VOYANTS LUMINEUX */
+        /* ETATS ONLINE/OFFLINE */
         .online { background-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
         .offline { background-color: #FF0000; box-shadow: 0 0 10px #FF0000; }
 
@@ -252,7 +266,6 @@
             100% { transform: scale(1); }
         }
 
-        /* LECTEUR DE MUSIQUE INVISIBLE SURÉLEVÉ */
         .lecteur-cache {
             position: absolute;
             width: 1px;
@@ -263,17 +276,18 @@
             left: -9999px;
         }
     </style>
-</head> <body>
+</head>
+<body>
 
     <!-- ==================== ÉTAPE 1 : PAGE D'ACCUEIL ==================== -->
     <div id="splash-page">
-        <button class="btn-entrer" onclick="ouvrirProfil()">Tita</button>
+        <button id="bouton-declencheur" class="btn-entrer">Tita</button>
     </div>
 
     <!-- ==================== ÉTAPE 2 : LE PROFIL PRINCIPAL ==================== -->
     <div id="main-profile">
         
-        <!-- BLOC AVATAR + ID DE TITA -->
+        <!-- BLOC AVATAR + ID -->
         <div class="tita-profile-box">
             <div class="avatar-container">
                 <img class="tita-avatar" src="https://u.cubeupload.com/Tita/e01fcc986e9346fc74db.jpg" alt="Tita">
@@ -282,20 +296,22 @@
             <div class="tita-id">1133435149</div>
         </div>
 
-        <!-- BLOC DE PRÉSENTATION TRANSPARENT ET ESTHÉTIQUE -->
+        <h1 class="tita-giant-title">Tita</h1>
+
+        <!-- BLOC DE PRÉSENTATION VIOLET -->
         <div class="presentation-box">
             <ul class="presentation-list">
-                <li class="presentation-item">
+               <li class="presentation-item">
                     <span class="icon-bullet">✨</span>
                     <span><strong>Name :</strong> Tita</span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">✉️</span>
-                    <span><strong>Contact :</strong> <a href="https://forum.xat.com/profile/55475/" target="_blank" class="purple-color">Forum</a></span>
+                    <span><strong>Contact :</strong> <a href="https://forum.xat.com/profile/55475/" target="_blank">Forum</a></span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">💬</span>
-                    <span><strong>My chat :</strong> <a href="https://xat.com/Blog" target="_blank" class="purple-color">Talk on xat</a></span>
+                    <span><strong>My chat :</strong> <a href="https://xat.com/Blog" target="_blank">Talk on xat</a></span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">🔮</span>
@@ -304,58 +320,55 @@
             </ul>
         </div>
 
-        <!-- WIDGT MARIAGE "LOVE" EN MENU DÉROULANT (VERS RAVEN) -->
+        <!-- WIDGET MARIAGE "LOVE" EN MENU DÉROULANT (VERS RAVEN) -->
         <div class="dropdown-marriage">
             <button class="btn-love">LOVE ▲</button>
             <div class="marriage-content">
-                <div class="raven-avatar-container">
-                    <a href="https://xat.me/Raven" target="_blank">
-                        <img class="https://xatimg.com/image/MTH0hWzfriiX.jpg" src="https://xat.me/Raven" id="https://xatimg.com/image/MTH0hWzfriiX.jpg" alt="Raven">
-                    </a>
-                    <span class="tita-status offline" id="raven-status"></span>
-                </div>
-                <div class="raven-name">Raven</div>
+                <a href="https://xat.me" target="_blank" class="raven-link">
+                    <div class="raven-avatar-container">
+                        <img class="raven-avatar" src="https://i.ibb.co/C31SKGg3/MTH0h-Wzfrii-X.jpg" alt="Raven">
+                        <span class="tita-status offline" id="raven-status"></span>
+                    </div>
+                    <div class="raven-name">Raven</div>
+                </a>
                 <span class="heart-pink">❤</span>
             </div>
         </div>
 
         <!-- CONTENEUR DU LECTEUR DE MUSIQUE INVISIBLE -->
         <div class="lecteur-cache" id="musique-container"></div>
-        
     </div>
 
-    <!-- ==================== LOGIQUE DYNAMIQUE JAVASCRIPT ==================== -->
+    <!-- LOGIQUE DYNAMIQUE DE CLIC INSTANTANÉ -->
     <script>
-        function ouvrirProfil() {
-            var splash = document.getElementById('splash-page');
-            var transitionScreen = document.getElementById('transition-screen');
-            var profil = document.getElementById('main-profile');
-            var musique = document.getElementById('musique-container');
-
-            // 1. Disparition fluide de l'accueil
-            splash.style.opacity = '0';
+        document.addEventListener("DOMContentLoaded", function() {
+            var bouton = document.getElementById('bouton-declencheur');
             
-            setTimeout(function() {
-                splash.style.display = 'none';
-                
-                        // 2. Révélation de l'interface complète du profil
+            if(bouton) {
+                bouton.addEventListener("click", function() {
+                    var splash = document.getElementById('splash-page');
+                    var profil = document.getElementById('main-profile');
+                    var musique = document.getElementById('musique-container');
+
+                    // Effacement immédiat de l'écran d'accueil
+                    splash.style.opacity = '0';
+                    
+                    setTimeout(function() {
+                        splash.style.display = 'none';
                         profil.style.display = 'block';
-                        setTimeout(function() {
-                            profil.style.opacity = '1';
+                        
+                        setTimeout(function() { 
+                            profil.style.opacity = '1'; 
                         }, 50);
 
-                        // 3. Injection automatique de la musique Youtube invisible
+                        // Injection automatique sécurisée de la musique YouTube
                         var idVideo = "dQw4w9WgXcQ"; 
                         musique.innerHTML = '<iframe src="https://youtube.com' + idVideo + '?autoplay=1&loop=1&playlist=' + idVideo + '&mute=0" allow="autoplay" style="border:none;"></iframe>';
-                    }, 600);
-
-                }, 4000);
-
-            }, 600);
-        }
+                    }, 400);
+                });
+            }
+        });
     </script>
 
 </body>
 </html>
-
-
