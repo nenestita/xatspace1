@@ -79,17 +79,6 @@
             pointer-events: none;
         }
 
-        .phrase-deen {
-            font-family: 'Cinzel', serif;
-            font-style: italic;
-            font-size: 34px;
-            letter-spacing: 4px;
-            color: #f1dfbc;
-            text-shadow: 0 0 15px rgba(241, 223, 188, 0.6);
-            text-align: center;
-            z-index: 25;
-        }
-
         /* 2. LE PROFIL PRINCIPAL (AFFICHÉ APRÈS LE CLIC) */
         #main-profile {
             position: absolute;
@@ -106,8 +95,8 @@
         /* COMPOSANT AVATAR ROND DE TITA + STATUT EN LIGNE (HAUT GAUCHE) */
         .tita-profile-box {
             position: absolute;
-            top: 40px;
-            left: 40px;
+            top: 70px;
+            left: 70px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -145,22 +134,6 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-        }
-
-        /* STYLE NOM GEANT EN BAS GAUCHE EN MODE NAMEGRAD VIOLET ET ROSE */
-        .tita-giant-title {
-            position: absolute;
-            bottom: 30px;
-            left: 50px;
-            font-family: 'Parisienne', cursive;
-            font-size: 110px;
-            font-weight: 500;
-            background: linear-gradient(45deg, #cc66ff, #ff6699);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 0px 15px rgba(204, 102, 255, 0.6));
-            margin: 0;
-            user-select: none;
         }
 
         /* BLOC DE PRÉSENTATION TRANSPARENT AESTHETIC (BAS DROITE) */
@@ -308,9 +281,8 @@
         <button class="btn-entrer" onclick="ouvrirProfil()">Tita</button>
     </div>
 
-    <!-- ==================== ÉTAPE 2 : TRANSITION SCREEN (4 SECONDES) ==================== -->
+    <!-- ==================== ÉTAPE 2 : TRANSITION SCREEN ==================== -->
     <div id="transition-screen">
-        <div class="phrase-deen">deen over dunya</div>
     </div>
 
     <!-- ==================== ÉTAPE 3 : LE PROFIL PRINCIPAL ==================== -->
@@ -319,29 +291,26 @@
         <!-- BLOC AVATAR + ID DE TITA -->
         <div class="tita-profile-box">
             <div class="avatar-container">
-                <img class="tita-avatar" src="https://cubeupload.com" alt="Tita">
+                <img class="tita-avatar" src="https://u.cubeupload.com/Tita/e01fcc986e9346fc74db.jpg" alt="Tita">
                 <span class="tita-status online"></span>
             </div>
             <div class="tita-id">1133435149</div>
         </div>
-
-        <!-- NOM GÉANT EN BAS GAUCHE EN DÉGRADÉ VIOLET/ROSE -->
-        <h1 class="tita-giant-title">Tita</h1>
 
         <!-- BLOC DE PRÉSENTATION TRANSPARENT ET ESTHÉTIQUE -->
         <div class="presentation-box">
             <ul class="presentation-list">
                 <li class="presentation-item">
                     <span class="icon-bullet">✨</span>
-                    <span><strong>Nom :</strong> Tita</span>
+                    <span><strong>Name :</strong> Tita</span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">✉️</span>
-                    <span><strong>Contact :</strong> <a href="https://forum.xat.com/profile/55475/" target="_blank">My Forum Profil</a></span>
+                    <span><strong>Contact :</strong> <a href="https://forum.xat.com/profile/55475/" target="_blank" class="purple-color">Forum</a></span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">💬</span>
-                    <span><strong>My chat :</strong> <a href="https://xat.com/Blog" target="_blank">Talk on xat</a></span>
+                    <span><strong>My chat :</strong> <a href="https://xat.com/Blog" target="_blank" class="purple-color">Talk on xat</a></span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">🔮</span>
@@ -350,7 +319,7 @@
             </ul>
         </div>
 
-        <!-- WIDGET MARIAGE "LOVE" EN MENU DÉROULANT (VERS RAVEN) -->
+        <!-- WIDGT MARIAGE "LOVE" EN MENU DÉROULANT (VERS RAVEN) -->
         <div class="dropdown-marriage">
             <button class="btn-love">LOVE ▲</button>
             <div class="marriage-content">
@@ -384,26 +353,13 @@
             setTimeout(function() {
                 splash.style.display = 'none';
                 
-                // 2. Affichage immédiat de l'écran de transition avec paillettes
-                transitionScreen.style.display = 'flex';
-                setTimeout(function() {
-                    transitionScreen.style.opacity = '1';
-                }, 50);
-
-                // 3. Blocage de 4 secondes complètes (4000ms) pour lire la phrase
-                setTimeout(function() {
-                    transitionScreen.style.opacity = '0';
-                    
-                    setTimeout(function() {
-                        transitionScreen.style.display = 'none';
-                        
-                        // 4. Révélation de l'interface complète du profil
+                        // 2. Révélation de l'interface complète du profil
                         profil.style.display = 'block';
                         setTimeout(function() {
                             profil.style.opacity = '1';
                         }, 50);
 
-                        // 5. Injection automatique de la musique Youtube invisible
+                        // 3. Injection automatique de la musique Youtube invisible
                         var idVideo = "dQw4w9WgXcQ"; 
                         musique.innerHTML = '<iframe src="https://youtube.com' + idVideo + '?autoplay=1&loop=1&playlist=' + idVideo + '&mute=0" allow="autoplay" style="border:none;"></iframe>';
                     }, 600);
