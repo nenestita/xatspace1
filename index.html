@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xatspace de Tita</title>
+    <!-- Importation des polices d'écriture Google Fonts (Parisienne pour le style Mumy, Cinzel et Montserrat) -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@500&family=Montserrat:wght@300;400;600&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <style>
+        /* DESIGN GLOBAL */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        a {
+            color: #ff6699;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #cc66ff;
+        }
+
+        /* 1. PAGE D'ACCUEIL (SPLASH) */
+        #splash-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://cubeupload.com') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+            transition: opacity 0.6s ease;
+        }
+
+        .btn-entrer {
+            padding: 20px 60px;
+            font-family: 'Sacramento', cursive;
+            font-size: 55px;
+            font-weight: bold;
+            color: #ffffff;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://cubeupload.com') no-repeat center center;
+            background-size: cover;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px #fff;
+            transition: all 0.3s ease;
+        }
+        .btn-entrer:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 102, 153, 0.8);
+            border-color: #ff6699;
+        }
+
+        /* 2. ÉCRAN DE TRANSITION (4 SECONDES) */
+        #transition-screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #050505;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .phrase-deen {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 34px;
+            letter-spacing: 4px;
+            color: #f1dfbc;
+            text-shadow: 0 0 15px rgba(241, 223, 188, 0.6);
+            text-align: center;
+        }
+
+        #transition-screen::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://giphy.com') center center;
+            background-size: cover;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* 3. LE PROFIL PRINCIPAL */
+        #main-profile {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://cubeupload.com') no-repeat center center fixed;
+            background-size: cover;
+            display: none;
+            opacity: 0;
+            z-index: 10;
+            transition: opacity 0.8s ease;
+        }
+
+        /* BLOC AVATAR + ID (HAUT GAUCHE) */
+        .tita-profile-box {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+        }
+
+        .tita-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff6699;
+            box-shadow: 0 0 20px rgba(255, 102, 153, 0.7);
+        }
+
+        /* Point de statut sur votre avatar */
+        .tita-status {
+            position: absolute;
+            bottom: 2px;
+            right: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #000;
+        }
+
+        .tita-id {
+            font-size: 13px;
+            color: rgba(255,255,255,0.75);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        /* NOM GEANT EN BAS GAUCHE (STYLE NAMEGRAD VIOLET/ROSE) */
+        .tita-giant-title {
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+            font-family: 'Parisienne', cursive;
+            font-size: 110px;
+            font-weight: 500;
+            /* Création du dégradé linéaire de couleur sur le texte */
+            background: linear-gradient(45deg, #cc66ff, #ff6699);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 0px 15px rgba(204, 102, 255, 0.6));
+            margin: 0;
+            user-select: none;
+        }
+
+        /* BLOC DE PRÉSENTATION FLOTTANT (ESTHÉTIQUE TRANSPARENT) */
+        .presentation-box {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            width: 380px;
+            background: rgba(10, 10, 10, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 102, 153, 0.25);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255,255,255,0.05);
+            box-sizing: border-box;
+        }
+
+        .presentation-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .presentation-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .presentation-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Style des émojis/icônes */
+        .icon-bullet {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .twitch-color {
+            color: #a370f7;
+            font-weight: bold;
+        }
+
+        /* COMPOSANT MENU DÉROULANT MARIAGE ("LOVE") */
+        .dropdown-marriage {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            display: inline-block;
+        }
+
+        .btn-love {
+            padding: 12px 35px;
+            background: rgba(0, 0, 0, 0.75);
+            border: 2px solid #ff6699;
+            border-radius: 25px;
+            box-shadow: 0 0 15px #ff6699, inset 0 0 10px #ff6699;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px #ff6699;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .marriage-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 55px;
+            background: rgba(15, 15, 15, 0.95);
+            min-width: 240px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255, 102, 153, 0.3);
+            border-radius: 16px;
+            padding: 15px;
+            z-index: 50;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .dropdown-marriage:hover .marriage-content {
+            display: flex;
+        }
+
+        .raven-avatar-container {
+            position: relative;
+            width: 55px;
+            height: 55px;
+        }
+
+        .raven-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff6699;
+        }
+
+        .raven-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .heart-pink {
+            color: #ff3380;
+            font-size: 18px;
+            animation: heartBeat 1.2s infinite;
+            margin-left: auto;
+        }
+
+        /* ETATS ONLINE/OFFLINE */
+        .online { background-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
+        .offline { background-color: #FF0000; box-shadow: 0 0 10px #FF0000; }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+
+        .lecteur-cache {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            overflow: hidden;
+            top: -9999px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== ÉTAPE 1 : PAGE D'ACCUEIL ==================== -->
+    <div id="splash-page">
+        <button class="btn-entrer" onclick="declencherTransition()">Tita</button>
+    </div>
+
+    <!-- ==================== ÉTAPE 2 : TRANSITION PAILLETTES (4 SECONDES) ==================== -->
+    <div id="transition-screen">
+        <div class="phrase-deen">deen over dunya</div>
+    </div>
+
