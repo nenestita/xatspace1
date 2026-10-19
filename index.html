@@ -68,20 +68,6 @@
             border-color: #ff6699;
         }
 
-        /* 2. ÉCRAN DE TRANSITION D'ACCUEIL (PAILLETTES DURANT 4 SECONDES) */
-        #transition-screen {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #050505;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 20;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-
         #transition-screen::before {
             content: "";
             position: absolute;
@@ -104,7 +90,7 @@
             z-index: 25;
         }
 
-        /* 3. LE PROFIL PRINCIPAL (AFFICHÉ APRÈS LE CLIC) */
+        /* 2. LE PROFIL PRINCIPAL (AFFICHÉ APRÈS LE CLIC) */
         #main-profile {
             position: absolute;
             width: 100%;
@@ -315,11 +301,14 @@
             left: -9999px;
         }
     </style>
-</head> <body> <!-- ==================== ÉTAPE 1 : PAGE D'ACCUEIL ==================== -->
+</head> <body>
+
+    <!-- ==================== ÉTAPE 1 : PAGE D'ACCUEIL ==================== -->
     <div id="splash-page">
         <button class="btn-entrer" onclick="ouvrirProfil()">Tita</button>
     </div>
- <!-- ==================== ÉTAPE 2 : TRANSITION PAILLETTES (4 SECONDES) ==================== -->
+
+    <!-- ==================== ÉTAPE 2 : TRANSITION SCREEN (4 SECONDES) ==================== -->
     <div id="transition-screen">
         <div class="phrase-deen">deen over dunya</div>
     </div>
@@ -348,15 +337,15 @@
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">✉️</span>
-                    <span><strong>Contact :</strong> <a href="https://xat.com" target="_blank">Mon Profil Forum</a></span>
+                    <span><strong>Contact :</strong> <a href="https://forum.xat.com/profile/55475/" target="_blank">My Forum Profil</a></span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">💬</span>
-                    <span><strong>Mes Tchats :</strong> <a href="https://xat.com" target="_blank">Discuter sur xat</a></span>
+                    <span><strong>My chat :</strong> <a href="https://xat.com/Blog" target="_blank">Talk on xat</a></span>
                 </li>
                 <li class="presentation-item">
                     <span class="icon-bullet">🔮</span>
-                    <span><strong>Twitch :</strong> <a href="https://twitch.tv" target="_blank" class="twitch-color">nenestita</a></span>
+                    <span><strong>Twitch :</strong> <a href="https://twitch.tv/nenestita" target="_blank" class="twitch-color">nenestita</a></span>
                 </li>
             </ul>
         </div>
@@ -366,8 +355,8 @@
             <button class="btn-love">LOVE ▲</button>
             <div class="marriage-content">
                 <div class="raven-avatar-container">
-                    <a href="https://xat.me" target="_blank">
-                        <img class="raven-avatar" src="https://xat.me" id="raven-img" alt="Raven">
+                    <a href="https://xat.me/Raven" target="_blank">
+                        <img class="https://xatimg.com/image/MTH0hWzfriiX.jpg" src="https://xat.me/Raven" id="https://xatimg.com/image/MTH0hWzfriiX.jpg" alt="Raven">
                     </a>
                     <span class="tita-status offline" id="raven-status"></span>
                 </div>
@@ -427,3 +416,5 @@
 
 </body>
 </html>
+
+
