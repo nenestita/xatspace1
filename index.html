@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xatspace de Tita</title>
-    <!-- Importation des polices d'écriture Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@500&family=Montserrat:wght@300;400;600&family=Parisienne&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- Importation propre et sécurisée des polices d'écriture Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
-        /* DESIGN GLOBAL */
+        /* CONFIGURATION STRUCTURELLE DE BASE */
         body, html {
             margin: 0;
             padding: 0;
@@ -31,43 +31,44 @@
             color: #cc66ff;
         }
 
-        /* 1. PAGE D'ACCUEIL (SPLASH) */
+        /* 1. LA PAGE D'ACCUEIL (SPLASH PAGE) */
         #splash-page {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('https://cubeupload.com') no-repeat center center fixed;
+            background: url('https://u.cubeupload.com/Tita/FromKlickpincomPract.gif') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 30;
-            opacity: 1;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        /* LE BOUTON CENTRAL INCRUSTÉ AVEC L'IMAGE EN ARRIÈRE-PLAN */
         .btn-entrer {
             padding: 20px 60px;
             font-family: 'Sacramento', cursive;
             font-size: 55px;
             font-weight: bold;
             color: #ffffff;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://cubeupload.com') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://u.cubeupload.com/Tita/1dc43cedb3014390281b.jpg') no-repeat center center;
             background-size: cover;
             border: 2px solid rgba(255, 255, 255, 0.7);
             border-radius: 15px;
             cursor: pointer;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.6);
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px #fff;
             transition: all 0.3s ease;
         }
+        
         .btn-entrer:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(255, 102, 153, 0.8);
+            box-shadow: 0 0 40px rgba(255, 102, 153, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.4);
             border-color: #ff6699;
         }
 
-        /* 2. ÉCRAN DE TRANSITION (4 SECONDES) */
+        /* 2. ÉCRAN DE TRANSITION D'ACCUEIL (PAILLETTES DURANT 4 SECONDES) */
         #transition-screen {
             position: absolute;
             width: 100%;
@@ -81,17 +82,6 @@
             transition: opacity 0.6s ease;
         }
 
-        .phrase-deen {
-            font-family: 'Cinzel', serif;
-            font-style: italic;
-            font-size: 34px;
-            letter-spacing: 4px;
-            color: #f1dfbc;
-            text-shadow: 0 0 15px rgba(241, 223, 188, 0.6);
-            text-align: center;
-            z-index: 25;
-        }
-
         #transition-screen::before {
             content: "";
             position: absolute;
@@ -103,12 +93,23 @@
             pointer-events: none;
         }
 
-        /* 3. LE PROFIL PRINCIPAL */
+        .phrase-deen {
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 34px;
+            letter-spacing: 4px;
+            color: #f1dfbc;
+            text-shadow: 0 0 15px rgba(241, 223, 188, 0.6);
+            text-align: center;
+            z-index: 25;
+        }
+
+        /* 3. LE PROFIL PRINCIPAL (AFFICHÉ APRÈS LE CLIC) */
         #main-profile {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('https://cubeupload.com') no-repeat center center fixed;
+            background: url('https://u.cubeupload.com/Tita/FromKlickpincomDisco.gif') no-repeat center center fixed;
             background-size: cover;
             display: none;
             opacity: 0;
@@ -116,7 +117,7 @@
             transition: opacity 0.8s ease;
         }
 
-        /* BLOC AVATAR + ID (HAUT GAUCHE) */
+        /* COMPOSANT AVATAR ROND DE TITA + STATUT EN LIGNE (HAUT GAUCHE) */
         .tita-profile-box {
             position: absolute;
             top: 40px;
@@ -142,7 +143,6 @@
             box-shadow: 0 0 20px rgba(255, 102, 153, 0.7);
         }
 
-        /* Point de statut sur votre avatar */
         .tita-status {
             position: absolute;
             bottom: 2px;
@@ -161,7 +161,7 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
 
-        /* NOM GEANT EN BAS GAUCHE (STYLE NAMEGRAD VIOLET/ROSE) */
+        /* STYLE NOM GEANT EN BAS GAUCHE EN MODE NAMEGRAD VIOLET ET ROSE */
         .tita-giant-title {
             position: absolute;
             bottom: 30px;
@@ -177,7 +177,7 @@
             user-select: none;
         }
 
-        /* BLOC DE PRÉSENTATION FLOTTANT (ESTHÉTIQUE TRANSPARENT) */
+        /* BLOC DE PRÉSENTATION TRANSPARENT AESTHETIC (BAS DROITE) */
         .presentation-box {
             position: absolute;
             bottom: 50px;
@@ -224,7 +224,7 @@
             font-weight: bold;
         }
 
-        /* COMPOSANT MENU DÉROULANT MARIAGE ("LOVE") */
+        /* WIDGET MARIAGE "LOVE" EN MENU DÉROULANT (HAUT DROITE) */
         .dropdown-marriage {
             position: absolute;
             top: 40px;
@@ -294,7 +294,7 @@
             margin-left: auto;
         }
 
-        /* ETATS ONLINE/OFFLINE */
+        /* CLASSIFICATION DES VOYANTS LUMINEUX */
         .online { background-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
         .offline { background-color: #FF0000; box-shadow: 0 0 10px #FF0000; }
 
@@ -304,7 +304,7 @@
             100% { transform: scale(1); }
         }
 
-        /* BOÎTE MUSIQUE TOTALEMENT INVISIBLE */
+        /* LECTEUR DE MUSIQUE INVISIBLE SURÉLEVÉ */
         .lecteur-cache {
             position: absolute;
             width: 1px;
@@ -320,10 +320,9 @@
 
     <!-- ==================== ÉTAPE 1 : PAGE D'ACCUEIL ==================== -->
     <div id="splash-page">
-        <button id="bouton-declencheur" class="btn-entrer">Tita</button>
+        <button class="btn-entrer" onclick="ouvrirProfil()">Tita</button>
     </div>
-
-    <!-- ==================== ÉTAPE 2 : TRANSITION PAILLETTES (4 SECONDES) ==================== -->
+ <!-- ==================== ÉTAPE 2 : TRANSITION PAILLETTES (4 SECONDES) ==================== -->
     <div id="transition-screen">
         <div class="phrase-deen">deen over dunya</div>
     </div>
@@ -331,3 +330,103 @@
     <!-- ==================== ÉTAPE 3 : LE PROFIL PRINCIPAL ==================== -->
     <div id="main-profile">
         
+        <!-- BLOC AVATAR + ID DE TITA -->
+        <div class="tita-profile-box">
+            <div class="avatar-container">
+                <img class="tita-avatar" src="https://cubeupload.com" alt="Tita">
+                <span class="tita-status online"></span>
+            </div>
+            <div class="tita-id">1133435149</div>
+        </div>
+
+        <!-- NOM GÉANT EN BAS GAUCHE EN DÉGRADÉ VIOLET/ROSE -->
+        <h1 class="tita-giant-title">Tita</h1>
+
+        <!-- BLOC DE PRÉSENTATION TRANSPARENT ET ESTHÉTIQUE -->
+        <div class="presentation-box">
+            <ul class="presentation-list">
+                <li class="presentation-item">
+                    <span class="icon-bullet">✨</span>
+                    <span><strong>Nom :</strong> Tita</span>
+                </li>
+                <li class="presentation-item">
+                    <span class="icon-bullet">✉️</span>
+                    <span><strong>Contact :</strong> <a href="https://xat.com" target="_blank">Mon Profil Forum</a></span>
+                </li>
+                <li class="presentation-item">
+                    <span class="icon-bullet">💬</span>
+                    <span><strong>Mes Tchats :</strong> <a href="https://xat.com" target="_blank">Discuter sur xat</a></span>
+                </li>
+                <li class="presentation-item">
+                    <span class="icon-bullet">🔮</span>
+                    <span><strong>Twitch :</strong> <a href="https://twitch.tv" target="_blank" class="twitch-color">nenestita</a></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- WIDGET MARIAGE "LOVE" EN MENU DÉROULANT (VERS RAVEN) -->
+        <div class="dropdown-marriage">
+            <button class="btn-love">LOVE ▲</button>
+            <div class="marriage-content">
+                <div class="raven-avatar-container">
+                    <a href="https://xat.me" target="_blank">
+                        <img class="raven-avatar" src="https://xat.me" id="raven-img" alt="Raven">
+                    </a>
+                    <span class="tita-status offline" id="raven-status"></span>
+                </div>
+                <div class="raven-name">Raven</div>
+                <span class="heart-pink">❤</span>
+            </div>
+        </div>
+
+        <!-- CONTENEUR DU LECTEUR DE MUSIQUE INVISIBLE -->
+        <div class="lecteur-cache" id="musique-container"></div>
+        
+    </div>
+
+    <!-- ==================== LOGIQUE DYNAMIQUE JAVASCRIPT ==================== -->
+    <script>
+        function ouvrirProfil() {
+            var splash = document.getElementById('splash-page');
+            var transitionScreen = document.getElementById('transition-screen');
+            var profil = document.getElementById('main-profile');
+            var musique = document.getElementById('musique-container');
+
+            // 1. Disparition fluide de l'accueil
+            splash.style.opacity = '0';
+            
+            setTimeout(function() {
+                splash.style.display = 'none';
+                
+                // 2. Affichage immédiat de l'écran de transition avec paillettes
+                transitionScreen.style.display = 'flex';
+                setTimeout(function() {
+                    transitionScreen.style.opacity = '1';
+                }, 50);
+
+                // 3. Blocage de 4 secondes complètes (4000ms) pour lire la phrase
+                setTimeout(function() {
+                    transitionScreen.style.opacity = '0';
+                    
+                    setTimeout(function() {
+                        transitionScreen.style.display = 'none';
+                        
+                        // 4. Révélation de l'interface complète du profil
+                        profil.style.display = 'block';
+                        setTimeout(function() {
+                            profil.style.opacity = '1';
+                        }, 50);
+
+                        // 5. Injection automatique de la musique Youtube invisible
+                        var idVideo = "dQw4w9WgXcQ"; 
+                        musique.innerHTML = '<iframe src="https://youtube.com' + idVideo + '?autoplay=1&loop=1&playlist=' + idVideo + '&mute=0" allow="autoplay" style="border:none;"></iframe>';
+                    }, 600);
+
+                }, 4000);
+
+            }, 600);
+        }
+    </script>
+
+</body>
+</html>
