@@ -236,8 +236,8 @@
     </div>
 
     <!-- LOGIQUE DYNAMIQUE DE CLIC INSTANTANÉ -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
             var bouton = document.getElementById('bouton-declencheur');
             
             if(bouton) {
@@ -246,7 +246,7 @@
                     var profil = document.getElementById('main-profile');
                     var musique = document.getElementById('musique-container');
 
-                    // Effacement immédiat de l'écran d'accueil
+                    // Chargement immédiat sans transition
                     splash.style.opacity = '0';
                     
                     setTimeout(function() {
@@ -257,14 +257,11 @@
                             profil.style.opacity = '1'; 
                         }, 50);
 
-                        // Injection automatique sécurisée de la musique YouTube
+                        // Ligne corrigée avec les bons slashes et domaines YouTube
                         var idVideo = "dQw4w9WgXcQ"; 
-                        musique.innerHTML = '<iframe src="https://youtube.com' + idVideo + '?autoplay=1&loop=1&playlist=' + idVideo + '&mute=0" allow="autoplay" style="border:none;"></iframe>';
+                        musique.innerHTML = '<iframe src="https://youtube.com' + idVideo + '?autoplay=1&loop=1&playlist=' + idVideo + '&mute=0" allow="autoplay" style="border:none; width:1px; height:1px; position:absolute; top:-9999px; left:-9999px;"></iframe>';
                     }, 400);
                 });
             }
         });
     </script>
-
-</body>
-</html>
