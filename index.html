@@ -52,7 +52,7 @@
             font-size: 55px;
             font-weight: bold;
             color: #ffffff;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://u.cubeupload.com/Tita/1dc43cedb3014390281b.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://u.cubeupload.com/Tita/cc228a9af8199d916607.jpg') no-repeat center center;
             background-size: cover;
             border: 2px solid rgba(255, 255, 255, 0.7);
             border-radius: 15px;
@@ -173,97 +173,10 @@
             font-weight: bold;
         }
 
-        /* COMPOSANT MENU DÉROULANT MARIAGE ("LOVE") */
-        .dropdown-marriage {
-            position: absolute;
-            top: 40px;
-            right: 40px;
-            display: inline-block;
-        }
-
-        .btn-love {
-            padding: 12px 35px;
-            background: rgba(0, 0, 0, 0.75);
-            border: 2px solid #ff6699;
-            border-radius: 25px;
-            box-shadow: 0 0 15px #ff6699, inset 0 0 10px #ff6699;
-            color: #fff;
-            font-size: 14px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 8px #ff6699;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .marriage-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 55px;
-            background: rgba(15, 15, 15, 0.95);
-            min-width: 240px;
-            box-shadow: 0px 8px 25px rgba(0,0,0,0.8);
-            border: 1px solid rgba(255, 102, 153, 0.3);
-            border-radius: 16px;
-            padding: 15px;
-            z-index: 50;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .dropdown-marriage:hover .marriage-content {
-            display: flex;
-        }
-
-        .raven-avatar-container {
-            position: relative;
-            width: 55px;
-            height: 55px;
-        }
-
-        .raven-avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ff6699;
-            box-shadow: 0 0 8px rgba(255, 102, 153, 0.5);
-        }
-
-        .raven-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #fff;
-        }
-        .raven-link:hover .raven-name {
-            color: #ff6699;
-        }
-
-        .raven-name {
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.2s;
-        }
-
-        .heart-pink {
-            color: #ff3380;
-            font-size: 18px;
-            animation: heartBeat 1.2s infinite;
-            margin-left: auto;
-        }
-
         /* ETATS ONLINE/OFFLINE */
         .online { background-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
         .offline { background-color: #FF0000; box-shadow: 0 0 10px #FF0000; }
 
-        @keyframes heartBeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.25); }
-            100% { transform: scale(1); }
         }
 
         .lecteur-cache {
@@ -318,21 +231,6 @@
                     <span><strong>Twitch :</strong> <a href="https://twitch.tv/nenestita" target="_blank" class="twitch-color">nenestita</a></span>
                 </li>
             </ul>
-        </div>
-
-        <!-- WIDGET MARIAGE "LOVE" EN MENU DÉROULANT (VERS RAVEN) -->
-        <div class="dropdown-marriage">
-            <button class="btn-love">LOVE ▲</button>
-            <div class="marriage-content">
-                <a href="https://xat.me/Raven" target="_blank" class="raven-link">
-                    <div class="raven-avatar-container">
-                        <img class="raven-avatar" src="https://i.ibb.co/C31SKGg3/MTH0h-Wzfrii-X.jpg" alt="Raven">
-                        <span class="tita-status offline" id="raven-status"></span>
-                    </div>
-                    <div class="raven-name">Raven</div>
-                </a>
-                <span class="heart-pink">❤</span>
-            </div>
         </div>
 
         <!-- CONTENEUR DU LECTEUR DE MUSIQUE INVISIBLE -->
